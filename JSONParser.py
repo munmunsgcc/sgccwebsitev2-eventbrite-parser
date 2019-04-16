@@ -68,23 +68,24 @@ def getCourseType(nameList, date):
     return courseType
 
 
-def getCoursePrices(courseName, courseType, prices=coursesInfo.prices):
-    price = {"main": '', "earlyBird": ''}
-    courseNamePrice = prices[courseName['id']]
+def getCoursePrices(courseNameId, courseType, prices=coursesInfo.prices):
+    price = ''
+    courseNamePrice = prices[courseNameId]
     earlyBirdDiscount = prices['earlyBirdDiscount']
     weekdayDiscount = prices['weekdayDiscount']
+    earlyBird = False
 
     if courseType == 'Weekend Weekly':
-        price['main'] = f"SGD{courseNamePrice['weekly']}"
-        price['earlyBird'] = f"SGD{courseNamePrice['weekly'] - earlyBirdDiscount}"
+        price = f"SGD{courseNamePrice['weekly']}"
+        earlyBird = courseNamePrice['earlyBird']['weekly'] if 'earlyBird' in courseNamePrice and 'weekly' in courseNamePrice['earlyBird'] else False
     elif courseType == 'Weekday Weekly':
-        price['main'] = f"SGD{courseNamePrice['weekly'] - weekdayDiscount}"
-        price["earlyBird"] = f"SGD{courseNamePrice['weekly'] - weekdayDiscount - earlyBirdDiscount}"
+        price = f"SGD{courseNamePrice['weekly'] - weekdayDiscount}"
+        earlyBird = courseNamePrice['earlyBird']['weekly'] if 'earlyBird' in courseNamePrice and 'weekly' in courseNamePrice['earlyBird'] else False
     elif courseType == 'Holiday Camp':
-        price["main"] = f"SGD{courseNamePrice['camp']}"
-        price["earlyBird"] = f"SGD{courseNamePrice['camp'] - earlyBirdDiscount}"
+        price = f"SGD{courseNamePrice['camp']}"
+        earlyBird = courseNamePrice['earlyBird']['camp'] if 'earlyBird' in courseNamePrice and 'camp' in courseNamePrice['earlyBird'] else False
 
-    return price
+    return {'main': price, 'earlyBird': earlyBird}
 
 
 def getCourseTiming(localDate, strUTCDate):
@@ -95,14 +96,14 @@ def getCourseTiming(localDate, strUTCDate):
     }
 
 
-def JSONParser(data, skippedDays):
+def JSONParser(data, skippedDays, parsedResponses):
     nameList = data['name']['text'].split(' ')
     fullEventDates = []
     set = rruleset()
+    unixSkippedDays = []
 
-    courseName = {"title": ' '.join(nameList[0:2]),
-                  "id": ''.join(nameList[0:2]).lower(),
-                  "name": ''.join(nameList[0:2])}
+    courseNameTitle = ' '.join(nameList[0:2])
+    courseNameId = ''.join(nameList[0:2]).lower()
     courseLocation = 'Marine Parade' if ('@MP' in nameList) else 'Bukit Timah'
     courseId = data['id']
     courseURL = data['url']
@@ -118,7 +119,7 @@ def JSONParser(data, skippedDays):
         courseEnd, parse(data['end']['utc'].replace('Z', '')))
 
     courseType = getCourseType(nameList, courseStart)
-    coursePrice = getCoursePrices(courseName, courseType)
+    coursePrice = getCoursePrices(courseNameId, courseType)
 
     courseHourLength = courseEnd.hour - courseStart.hour
     courseMinuteLength = courseEnd.minute - courseStart.minute
@@ -135,37 +136,37 @@ def JSONParser(data, skippedDays):
 
     set.rrule(setRule)
 
-    for i in range(len(skippedDays)):
-        set.exdate(parse(skippedDays[i], dayfirst=True))
-        skippedDays[i] = convertDateToUnixMS(parse(skippedDays[i]))
+    for day in skippedDays:
+        set.exdate(parse(day, dayfirst=True))
+        unixSkippedDays.append(convertDateToUnixMS(parse(day)))
 
     for date in list(set):
         fullEventDates.append(convertDateToUnixMS(date))
 
-    return {
-        "courseName": courseName['name'],
-        "courseTitle": courseName['title'],
-        "events": [
-            {
-                "type": courseType,
-                "dates": {
-                    "startDate": courseStartTiming['date'],
-                    "endDate": courseEndTiming['date'],
-                    "startDay": courseStartTiming['day'],
-                    "endDay": courseEndTiming['day'],
-                    "sessionLength": "{}{}".format(courseHourLength, '' if courseMinuteLength == 0 else courseMinuteLength),
-                    "sessionNumOfDays": len(fullEventDates),
-                    "day": "Weekends" if courseStartTiming['day'] in ["Sat", "Sun"] else "Weekdays",
-                    "full": fullEventDates,
-                    "skipped": skippedDays or "none",
-                },
-                "time": {
-                    "start": courseStartTiming['time'],
-                    "end": courseEndTiming['time']
-                },
-                "location": courseLocation,
-                "price": coursePrice,
-                "url": courseURL
-            }
-        ]
-    }
+    if courseNameTitle not in parsedResponses:
+        parsedResponses[courseNameTitle] = {"events": []}
+
+    parsedResponses[courseNameTitle]['events'].append(
+        {
+            "type": courseType,
+            "dates": {
+                "startDate": courseStartTiming['date'],
+                "endDate": courseEndTiming['date'],
+                "startDay": courseStartTiming['day'],
+                "endDay": courseEndTiming['day'],
+                "sessionLength": "{}{}".format(courseHourLength, '' if courseMinuteLength == 0 else courseMinuteLength),
+                "sessionNumOfDays": len(fullEventDates),
+                "day": "Weekends" if courseStartTiming['day'] in ["Sat", "Sun"] else "Weekdays",
+                "full": fullEventDates,
+                "skipped": unixSkippedDays or [],
+            },
+            "time": {
+                "start": courseStartTiming['time'],
+                "end": courseEndTiming['time']
+            },
+            "location": courseLocation,
+            "price": coursePrice,
+            "url": courseURL
+        })
+
+    return parsedResponses

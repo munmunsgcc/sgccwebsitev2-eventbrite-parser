@@ -4,7 +4,8 @@ prices = {
     "earlyBirdDiscount": 25,
     "fundamentals1": {
         "camp": 395,
-        "weekly": 395
+        "weekly": 395,
+        "earlyBird": {"camp": True, "weekly": True},
     },
     "fundamentals2": {
         "camp": 625,
@@ -12,7 +13,8 @@ prices = {
     },
     "basics1": {
         "camp": 395,
-        "weekly": 395
+        "weekly": 395,
+        "earlyBird": {"camp": True, "weekly": True},
     },
     "basics2": {
         "camp": 625,
@@ -36,7 +38,8 @@ prices = {
     },
     "principles1": {
         "camp": 485,
-        "weekly": 485
+        "weekly": 485,
+        "earlyBird": {"camp": True, "weekly": True},
     },
     "principles2": {
         "camp": 775,
@@ -69,5 +72,6 @@ prices = {
     "principlesX": {
         "camp": 880,
         "weekly": 880
-    }
+    },
+    "academics1": {"camp": True}
 }

@@ -1,29 +1,91 @@
 {
-  "courseName": "Principles1",
-  "courseTitle": "Principles 1",
-  "events": [
-    {
-      "type": "Weekend Weekly",
-      "dates": {
-        "startDate": "1553994000000",
-        "endDate": "1556420400000",
-        "startDay": "Sun",
-        "endDay": "Sun",
-        "sessionLength": "2",
-        "sessionNumOfDays": 4,
-        "day": "Weekends",
-        "full": [
-          "1554595200000",
-          "1555200000000",
-          "1555804800000",
-          "1556409600000"
-        ],
-        "skipped": ["1553990400000"]
+  "Principles 2": {
+    "events": [
+      {
+        "type": "Weekend Weekly",
+        "dates": {
+          "startDate": "1555740000000",
+          "endDate": "1559980800000",
+          "startDay": "Sat",
+          "endDay": "Sat",
+          "sessionLength": "2",
+          "sessionNumOfDays": 8,
+          "day": "Weekends",
+          "full": [
+            "1555718400000",
+            "1556323200000",
+            "1556928000000",
+            "1557532800000",
+            "1558137600000",
+            "1558742400000",
+            "1559347200000",
+            "1559952000000"
+          ],
+          "skipped": ["1559606400000", "1555113600000", "1546646400000"]
+        },
+        "time": { "start": "2:00pm", "end": "4:00pm" },
+        "location": "Bukit Timah",
+        "price": { "main": "SGD775", "earlyBird": false },
+        "url": "https://www.eventbrite.sg/e/principles-2-bt-apr-jun-weekly-sat-2pm-4pm-tickets-56549388744"
       },
-      "time": { "start": "9:00am", "end": "11:00am" },
-      "location": "Marine Parade",
-      "price": { "main": "SGD485", "earlyBird": "SGD460" },
-      "url": "https://www.eventbrite.sg/e/principles-1-mp-mar-apr-weekly-sun-9am-11am-tickets-57373030278"
-    }
-  ]
+      {
+        "type": "Weekday Weekly",
+        "dates": {
+          "startDate": "1554280200000",
+          "endDate": "1559125800000",
+          "startDay": "Wed",
+          "endDay": "Wed",
+          "sessionLength": "2",
+          "sessionNumOfDays": 8,
+          "day": "Weekdays",
+          "full": [
+            "1554249600000",
+            "1554854400000",
+            "1555459200000",
+            "1556064000000",
+            "1557273600000",
+            "1557878400000",
+            "1558483200000",
+            "1559088000000"
+          ],
+          "skipped": ["1559606400000", "1555113600000", "1546646400000"]
+        },
+        "time": { "start": "4:30pm", "end": "6:30pm" },
+        "location": "Marine Parade",
+        "price": { "main": "SGD725", "earlyBird": false },
+        "url": "https://www.eventbrite.sg/e/principles-2-mp-apr-may-weekly-wed-430pm-630pm-no-class-on-1-may-tickets-58702263049"
+      }
+    ]
+  },
+  "Principles 3": {
+    "events": [
+      {
+        "type": "Weekend Weekly",
+        "dates": {
+          "startDate": "1553329800000",
+          "endDate": "1558780200000",
+          "startDay": "Sat",
+          "endDay": "Sat",
+          "sessionLength": "2",
+          "sessionNumOfDays": 8,
+          "day": "Weekends",
+          "full": [
+            "1553299200000",
+            "1553904000000",
+            "1555718400000",
+            "1556323200000",
+            "1556928000000",
+            "1557532800000",
+            "1558137600000",
+            "1558742400000"
+          ],
+          "skipped": ["1559606400000", "1555113600000", "1546646400000"]
+        },
+        "time": { "start": "4:30pm", "end": "6:30pm" },
+        "location": "Bukit Timah",
+        "price": { "main": "SGD880", "earlyBird": false },
+        "url": "https://www.eventbrite.sg/e/principles-3-bt-mar-may-weekly-sat-430pm-630pm-tickets-55314857227"
+      }
+    ]
+  }
 }

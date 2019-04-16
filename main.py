@@ -11,7 +11,9 @@ eventIds = []
 eventBriteResponses = []
 eventBriteToken = '?token=' + token
 eventBriteAPIURL = 'https://www.eventbriteapi.com/v3/events/'
-skippedDays = sys.argv[1:] or ['1/1/2019']
+skippedDays = sys.argv[1:] or []
+parsedResponses = {}
+
 
 # Find a way to get total hours/minutes also
 # Convert all dates to UNIX time
@@ -31,6 +33,9 @@ for eventId in eventIds:
     formattedResponse = json.loads(response)
     eventBriteResponses.append(formattedResponse)
 
+for eventBriteResponse in eventBriteResponses:
+    parsedResponses = JSONParser(
+        eventBriteResponse, skippedDays, parsedResponses)
+
 with open('output.json', 'w') as outputFile:
-    for eventBriteResponse in eventBriteResponses:
-        json.dump(JSONParser(eventBriteResponse, skippedDays), outputFile)
+    json.dump(parsedResponses, outputFile)
