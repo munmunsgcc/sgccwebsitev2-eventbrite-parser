@@ -1,0 +1,6 @@
+lib/
+token.txt
+vnev/
+.vscode/
+__pycache__/
+.DS_STORE

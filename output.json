@@ -1,0 +1,29 @@
+{
+  "courseName": "Principles1",
+  "courseTitle": "Principles 1",
+  "events": [
+    {
+      "type": "Weekend Weekly",
+      "dates": {
+        "startDate": "1553994000000",
+        "endDate": "1556420400000",
+        "startDay": "Sun",
+        "endDay": "Sun",
+        "sessionLength": "2",
+        "sessionNumOfDays": 4,
+        "day": "Weekends",
+        "full": [
+          "1554595200000",
+          "1555200000000",
+          "1555804800000",
+          "1556409600000"
+        ],
+        "skipped": ["1553990400000"]
+      },
+      "time": { "start": "9:00am", "end": "11:00am" },
+      "location": "Marine Parade",
+      "price": { "main": "SGD485", "earlyBird": "SGD460" },
+      "url": "https://www.eventbrite.sg/e/principles-1-mp-mar-apr-weekly-sun-9am-11am-tickets-57373030278"
+    }
+  ]
+}
