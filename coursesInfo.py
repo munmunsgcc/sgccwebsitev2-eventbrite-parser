@@ -16,6 +16,10 @@ prices = {
         "weekly": 395,
         "earlyBird": {"camp": True, "weekly": True},
     },
+    "basics2a": {
+        "camp": 625,
+        "weekly": 625
+    },
     "basics2": {
         "camp": 625,
         "weekly": 625
@@ -24,7 +28,15 @@ prices = {
         "camp": 455,
         "weekly": 455
     },
+    "basics4a": {
+        "camp": 625,
+        "weekly": 625
+    },
     "basics4": {
+        "camp": 725,
+        "weekly": 725
+    },
+    "basicsx": {
         "camp": 725,
         "weekly": 725
     },
@@ -72,6 +84,14 @@ prices = {
     "principlesX": {
         "camp": 880,
         "weekly": 880
+    },
+    "java1": {
+        "camp": 790,
+        "weekly": 790
+    },
+    "juniorpython1": {
+        "camp": 775,
+        "weekly": 775
     },
     "academics1": {"camp": True}
 }

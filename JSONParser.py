@@ -7,9 +7,7 @@ import coursesInfo
 
 def convertDateToUnixMS(date):
     utctimestamp = datetime.utcfromtimestamp(0)
-    result = str((date - utctimestamp).total_seconds() * 1000)
-
-    return result.replace(".0", "")
+    return int((date - utctimestamp).total_seconds() * 1000)
 
 
 def intToDay(number):
@@ -77,13 +75,13 @@ def getCoursePrices(courseNameId, courseType, prices=coursesInfo.prices):
     earlyBird = False
 
     if courseType == 'Weekend Weekly':
-        price = f"SGD{courseNamePrice['weekly']}"
+        price = courseNamePrice['weekly']
         earlyBird = courseNamePrice['earlyBird']['weekly'] if 'earlyBird' in courseNamePrice and 'weekly' in courseNamePrice['earlyBird'] else False
     elif courseType == 'Weekday Weekly':
-        price = f"SGD{courseNamePrice['weekly'] - weekdayDiscount}"
+        price = courseNamePrice['weekly'] - weekdayDiscount
         earlyBird = courseNamePrice['earlyBird']['weekly'] if 'earlyBird' in courseNamePrice and 'weekly' in courseNamePrice['earlyBird'] else False
     elif courseType == 'Holiday Camp':
-        price = f"SGD{courseNamePrice['camp']}"
+        price = courseNamePrice['camp']
         earlyBird = courseNamePrice['earlyBird']['camp'] if 'earlyBird' in courseNamePrice and 'camp' in courseNamePrice['earlyBird'] else False
 
     return {'main': price, 'earlyBird': earlyBird}
@@ -103,8 +101,13 @@ def JSONParser(data, skippedDays, parsedResponses):
     set = rruleset()
     unixSkippedDays = []
 
-    courseNameTitle = ' '.join(nameList[0:2])
-    courseNameId = ''.join(nameList[0:2]).lower()
+    if nameList[0] == 'Junior':
+        courseNameTitle = ' '.join(nameList[0:3])
+        courseNameId = ''.join(nameList[0:3]).lower()
+    else:
+        courseNameTitle = ' '.join(nameList[0:2])
+        courseNameId = ''.join(nameList[0:2]).lower()
+
     courseLocation = 'Marine Parade' if ('@MP' in nameList) else 'Bukit Timah'
     courseId = data['id']
     courseURL = data['url']
@@ -125,10 +128,8 @@ def JSONParser(data, skippedDays, parsedResponses):
     courseHourLength = courseEnd.hour - courseStart.hour
     courseMinuteLength = courseEnd.minute - courseStart.minute
 
-    print(courseHourLength, courseMinuteLength)
-
     if courseMinuteLength > 0:
-        courseMinuteLength = Fraction(courseMinuteLength * 1/60)
+        courseMinuteLength = ' {}'.format(Fraction(courseMinuteLength * 1/60))
 
     if courseType == 'Holiday Camp':
         setRule = rrule(DAILY, interval=1, until=courseEnd,
@@ -149,20 +150,24 @@ def JSONParser(data, skippedDays, parsedResponses):
     if courseNameTitle not in parsedResponses:
         parsedResponses[courseNameTitle] = {"events": []}
 
+    fullDates = {
+        "startDate": courseStartTiming['date'],
+        "endDate": courseEndTiming['date'],
+        "startDay": courseStartTiming['day'],
+        "endDay": courseEndTiming['day'],
+        "sessionLength": "{}{}".format(courseHourLength, '' if courseMinuteLength == 0 else courseMinuteLength),
+        "sessionNumOfDays": len(fullEventDates),
+        "day": "Weekends" if courseStartTiming['day'] in ["Sat", "Sun"] else "Weekdays",
+        "full": fullEventDates,
+    }
+
+    if len(unixSkippedDays) > 0:
+        fullDates['skipped'] = unixSkippedDays
+
     parsedResponses[courseNameTitle]['events'].append(
         {
             "type": courseType,
-            "dates": {
-                "startDate": courseStartTiming['date'],
-                "endDate": courseEndTiming['date'],
-                "startDay": courseStartTiming['day'],
-                "endDay": courseEndTiming['day'],
-                "sessionLength": "{} {}".format(courseHourLength, '' if courseMinuteLength == 0 else courseMinuteLength),
-                "sessionNumOfDays": len(fullEventDates),
-                "day": "Weekends" if courseStartTiming['day'] in ["Sat", "Sun"] else "Weekdays",
-                "full": fullEventDates,
-                "skipped": unixSkippedDays or [],
-            },
+            "dates": fullDates,
             "time": {
                 "start": courseStartTiming['time'],
                 "end": courseEndTiming['time']
