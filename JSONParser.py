@@ -1,6 +1,7 @@
 from dateutil.parser import *
 from dateutil.rrule import *
 from datetime import *
+from fractions import Fraction
 import coursesInfo
 
 
@@ -58,7 +59,7 @@ def intToMonth(number):
 def getCourseType(nameList, date):
     courseType = ''
 
-    if 'Holiday' in nameList:
+    if 'Holiday' in nameList or 'Camp' in nameList:
         courseType = 'Holiday Camp'
     elif 'Weekly' in nameList and (intToDay(date.weekday()) == 'Sat' or intToDay(date.weekday()) == 'Sun'):
         courseType = 'Weekend Weekly'
@@ -124,8 +125,10 @@ def JSONParser(data, skippedDays, parsedResponses):
     courseHourLength = courseEnd.hour - courseStart.hour
     courseMinuteLength = courseEnd.minute - courseStart.minute
 
+    print(courseHourLength, courseMinuteLength)
+
     if courseMinuteLength > 0:
-        courseMinuteLength = courseMinuteLength * 1/60
+        courseMinuteLength = Fraction(courseMinuteLength * 1/60)
 
     if courseType == 'Holiday Camp':
         setRule = rrule(DAILY, interval=1, until=courseEnd,
@@ -154,7 +157,7 @@ def JSONParser(data, skippedDays, parsedResponses):
                 "endDate": courseEndTiming['date'],
                 "startDay": courseStartTiming['day'],
                 "endDay": courseEndTiming['day'],
-                "sessionLength": "{}{}".format(courseHourLength, '' if courseMinuteLength == 0 else courseMinuteLength),
+                "sessionLength": "{} {}".format(courseHourLength, '' if courseMinuteLength == 0 else courseMinuteLength),
                 "sessionNumOfDays": len(fullEventDates),
                 "day": "Weekends" if courseStartTiming['day'] in ["Sat", "Sun"] else "Weekdays",
                 "full": fullEventDates,
