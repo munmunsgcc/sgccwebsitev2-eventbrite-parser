@@ -102,10 +102,17 @@ info = {
         "url": "/courses/principles/principlesx",
         "ages": [13, 19]
     },
-    "introductiontojava": {
+    "java1": {
+        "recommenderOnly": True,
         "subtitle": "Introduction to Java",
         "url": "/courses/academics/java1",
-        "ages": [15, 18]
+        "ages": [17, 19]
+    },
+    "introductiontojava": {
+        "recommenderOnly": True,
+        "subtitle": "Introduction to Java",
+        "url": "/courses/academics/java1",
+        "ages": [17, 19]
     }
 }
 prices = {
