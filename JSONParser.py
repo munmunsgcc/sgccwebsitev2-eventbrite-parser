@@ -198,10 +198,6 @@ def JSONParser(data, skippedDays, parsedResponses):
             "ages": courseAges,
         }
 
-        # Only add recommenderOnly if available
-        if "recommenderOnly" in info:
-            parsedResponses[courseNameTitle]["recommenderOnly"] = True
-
         # Add subtitles if available
         if "subtitle" in info:
             parsedResponses[courseNameTitle]["subtitle"] = info["subtitle"]

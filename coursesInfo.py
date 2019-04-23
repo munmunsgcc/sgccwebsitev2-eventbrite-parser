@@ -2,8 +2,7 @@ info = {
     "basics1": {
         "subtitle": "Fun with Dash & Scratch",
         "url": "/courses/basics/basics1",
-        "ages": [7, 8],
-        "recommenderOnly": True,
+        "ages": [7, 8]
     },
     "basics2": {
         "subtitle": "Explorations with Dash & Scratch",
@@ -13,8 +12,7 @@ info = {
     "basics3": {
         "subtitle": "Starting with Scratch",
         "url": "/courses/basics/basics3",
-        "ages": [9, 10],
-        "recommenderOnly": True,
+        "ages": [9, 10]
     },
     "basics4a": {
         "subtitle": "Building with Scratch",
@@ -49,8 +47,7 @@ info = {
     "juniorpython2": {
         "subtitle": "Functions in Python",
         "url": "/courses/basics/jrpython2",
-        "ages": [11, 12],
-        "recommenderOnly": True,
+        "ages": [11, 12]
     },
     "juniorpython3": {
         "subtitle": "More functions in Python",
@@ -65,8 +62,7 @@ info = {
     "principles1": {
         "subtitle": "Python Fundamentals",
         "url": "/courses/principles/principles1",
-        "ages": [13, 19],
-        "recommenderOnly": True,
+        "ages": [13, 19]
     },
     "principles2": {
         "subtitle": "Programming with Functions in Python",
@@ -103,16 +99,14 @@ info = {
         "ages": [13, 19]
     },
     "java1": {
-        "recommenderOnly": True,
         "subtitle": "Introduction to Java",
         "url": "/courses/academics/java1",
-        "ages": [17, 19]
+        "ages": [15, 19]
     },
     "introductiontojava": {
-        "recommenderOnly": True,
         "subtitle": "Introduction to Java",
         "url": "/courses/academics/java1",
-        "ages": [17, 19]
+        "ages": [15, 19]
     }
 }
 prices = {
