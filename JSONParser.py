@@ -4,10 +4,14 @@ from datetime import *
 from fractions import Fraction
 import coursesInfo
 
+# Converts date to unix milliseconds
+
 
 def convertDateToUnixMS(date):
     utctimestamp = datetime.utcfromtimestamp(0)
     return int((date - utctimestamp).total_seconds() * 1000)
+
+# Converts number to corresponding day of the week
 
 
 def intToDay(number):
@@ -25,6 +29,8 @@ def intToDay(number):
         return 'Sat'
     elif number == 6:
         return 'Sun'
+
+# Converts number to corresponding month
 
 
 def intToMonth(number):
@@ -53,6 +59,8 @@ def intToMonth(number):
     elif number == 12:
         return 'Dec'
 
+# Returns the type of courses
+
 
 def getCourseType(nameList, date):
     courseType = ''
@@ -65,6 +73,8 @@ def getCourseType(nameList, date):
         courseType = 'Weekday Weekly'
 
     return courseType
+
+# Based on course type, return the correct course prices
 
 
 def getCoursePrices(courseNameId, courseType, prices=coursesInfo.prices):
@@ -86,6 +96,8 @@ def getCoursePrices(courseNameId, courseType, prices=coursesInfo.prices):
 
     return {'main': price, 'earlyBird': earlyBird}
 
+# Get course's time, date and day of the week
+
 
 def getCourseTiming(localDate, strUTCDate):
     return {
@@ -94,6 +106,23 @@ def getCourseTiming(localDate, strUTCDate):
         "time": localDate.strftime('%I:%M%p').lstrip('0').lower()
     }
 
+# Sets the course session length
+# Format in total hours and minutes are in fraction
+
+
+def getCourseSessionLength(start, end):
+    courseHourLength = end.hour - start.hour
+    courseMinuteLength = end.minute - start.minute
+
+    if courseMinuteLength > 0:
+        courseMinuteLength = format(Fraction(courseMinuteLength * 1/60))
+        return '{} {}'.format(courseHourLength, courseMinuteLength)
+    else:
+        return '{}'.format(courseHourLength)
+
+# Accepts data from the EventBrite API call response, any skipped days from
+# the CLI argument and an outside object for us to add events to.
+
 
 def JSONParser(data, skippedDays, parsedResponses):
     nameList = data['name']['text'].split(' ')
@@ -101,36 +130,44 @@ def JSONParser(data, skippedDays, parsedResponses):
     set = rruleset()
     unixSkippedDays = []
 
-    if nameList[0] == 'Junior':
-        courseNameTitle = ' '.join(nameList[0:3])
-        courseNameId = ''.join(nameList[0:3]).lower()
-    else:
-        courseNameTitle = ' '.join(nameList[0:2])
-        courseNameId = ''.join(nameList[0:2]).lower()
+    # Set how best we should parse the name
+    # Usually it's Basics 2 or Principles 2, but lately we have Junior Python 1
+    selectedArr = nameList[0:3] if nameList[0] == 'Junior' else nameList[0:2]
 
+    # Set course name and id, whatever needed to identify the course
+    courseNameTitle = ' '.join(selectedArr)
+    courseNameId = ''.join(selectedArr).lower()
+    courseNameStick = ''.join(selectedArr)
+    info = coursesInfo.info[courseNameId]
+
+    # Set other course info, such as the url to buy ticket, the location
+    # or the course age
+    courseNavigate = info["url"]
     courseLocation = 'Marine Parade' if ('@MP' in nameList) else 'Bukit Timah'
     courseId = data['id']
     courseURL = data['url']
+    courseAges = {"start": info["ages"]
+                  [0], "end": info["ages"][1]}
 
+    # Set course start timing
     courseStart = parse(data['start']['local'])
     courseStartTiming = getCourseTiming(
         courseStart, parse(data['start']['utc'].replace('Z', '')))
     courseStartObject = datetime.combine(
         courseStart.date(), courseStart.min.timetz())
 
+    # Set course end timing
     courseEnd = parse(data['end']['local'])
     courseEndTiming = getCourseTiming(
         courseEnd, parse(data['end']['utc'].replace('Z', '')))
 
+    # Is the course a Holiday Camp or a Weekendly Weekly?
+    # Also sets the course pricing
     courseType = getCourseType(nameList, courseStart)
     coursePrice = getCoursePrices(courseNameId, courseType)
 
-    courseHourLength = courseEnd.hour - courseStart.hour
-    courseMinuteLength = courseEnd.minute - courseStart.minute
-
-    if courseMinuteLength > 0:
-        courseMinuteLength = ' {}'.format(Fraction(courseMinuteLength * 1/60))
-
+    # Get total days and dates of the course length
+    # For holiday camps, it is done daily, else it is on every week
     if courseType == 'Holiday Camp':
         setRule = rrule(DAILY, interval=1, until=courseEnd,
                         dtstart=courseStartObject)
@@ -140,6 +177,7 @@ def JSONParser(data, skippedDays, parsedResponses):
 
     set.rrule(setRule)
 
+    # We have the dates already, so we just need to convert them to Unix milliseconds
     for day in skippedDays:
         set.exdate(parse(day, dayfirst=True))
         unixSkippedDays.append(convertDateToUnixMS(parse(day)))
@@ -147,23 +185,52 @@ def JSONParser(data, skippedDays, parsedResponses):
     for date in list(set):
         fullEventDates.append(convertDateToUnixMS(date))
 
+    # Set recommenderOnly, and other info such as subtitles, names, etc.
+    # This is for overall course info.
     if courseNameTitle not in parsedResponses:
-        parsedResponses[courseNameTitle] = {"events": []}
+        parsedResponses[courseNameTitle] = {
+            "courseTitle": courseNameTitle,
+            "courseName": courseNameStick,
+            "url": courseNavigate,
+            "ages": courseAges,
+        }
 
+        # Only add recommenderOnly if available
+        if "recommenderOnly" in info:
+            parsedResponses[courseNameTitle]["recommenderOnly"] = True
+
+        # Add subtitles if available
+        if "subtitle" in info:
+            parsedResponses[courseNameTitle]["subtitle"] = info["subtitle"]
+
+        # Certain courses have multiple subtitles, so we need to change subtitles based
+        # on full course name
+        if "subs" in info:
+            for key, value in info["subs"].items():
+                if key in data["name"]["text"]:
+                    parsedResponses[courseNameTitle]["subtitle"] = value
+
+        # Add events array
+        parsedResponses[courseNameTitle]["events"] = []
+
+    # Add the dates for the event
+    # This is for the course's 1 event. Events are stored in an array.
     fullDates = {
         "startDate": courseStartTiming['date'],
         "endDate": courseEndTiming['date'],
         "startDay": courseStartTiming['day'],
         "endDay": courseEndTiming['day'],
-        "sessionLength": "{}{}".format(courseHourLength, '' if courseMinuteLength == 0 else courseMinuteLength),
+        "sessionLength": getCourseSessionLength(courseStart, courseEnd),
         "sessionNumOfDays": len(fullEventDates),
         "day": "Weekends" if courseStartTiming['day'] in ["Sat", "Sun"] else "Weekdays",
         "full": fullEventDates,
     }
 
+    # Does this event have skipped days? Only added if yes.
     if len(unixSkippedDays) > 0:
         fullDates['skipped'] = unixSkippedDays
 
+    # Add the event to the array
     parsedResponses[courseNameTitle]['events'].append(
         {
             "type": courseType,
@@ -177,4 +244,5 @@ def JSONParser(data, skippedDays, parsedResponses):
             "url": courseURL
         })
 
+    # return the passed in object
     return parsedResponses

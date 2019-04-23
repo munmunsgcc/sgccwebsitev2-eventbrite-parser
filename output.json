@@ -1,90 +1,27 @@
 {
-  "Principles 2": {
+  "Basics X": {
+    "courseTitle": "Basics X",
+    "courseName": "BasicsX",
+    "url": "/courses/basics/basicsx",
+    "ages": { "start": 11, "end": 12 },
+    "subtitle": "App Inventor 1 - Intro to Mobile Programming",
     "events": [
       {
-        "type": "Weekend Weekly",
+        "type": "Holiday Camp",
         "dates": {
-          "startDate": "1555740000000",
-          "endDate": "1559980800000",
-          "startDay": "Sat",
-          "endDay": "Sat",
-          "sessionLength": "2",
-          "sessionNumOfDays": 8,
-          "day": "Weekends",
-          "full": [
-            "1555718400000",
-            "1556323200000",
-            "1556928000000",
-            "1557532800000",
-            "1558137600000",
-            "1558742400000",
-            "1559347200000",
-            "1559952000000"
-          ],
-          "skipped": ["1559606400000", "1555113600000", "1546646400000"]
-        },
-        "time": { "start": "2:00pm", "end": "4:00pm" },
-        "location": "Bukit Timah",
-        "price": { "main": "SGD775", "earlyBird": false },
-        "url": "https://www.eventbrite.sg/e/principles-2-bt-apr-jun-weekly-sat-2pm-4pm-tickets-56549388744"
-      },
-      {
-        "type": "Weekday Weekly",
-        "dates": {
-          "startDate": "1554280200000",
-          "endDate": "1559125800000",
-          "startDay": "Wed",
-          "endDay": "Wed",
-          "sessionLength": "2",
-          "sessionNumOfDays": 8,
+          "startDate": 1560733200000,
+          "endDate": 1561008600000,
+          "startDay": "Mon",
+          "endDay": "Thu",
+          "sessionLength": "4 1/2",
+          "sessionNumOfDays": 4,
           "day": "Weekdays",
-          "full": [
-            "1554249600000",
-            "1554854400000",
-            "1555459200000",
-            "1556064000000",
-            "1557273600000",
-            "1557878400000",
-            "1558483200000",
-            "1559088000000"
-          ],
-          "skipped": ["1559606400000", "1555113600000", "1546646400000"]
+          "full": [1560729600000, 1560816000000, 1560902400000, 1560988800000]
         },
-        "time": { "start": "4:30pm", "end": "6:30pm" },
+        "time": { "start": "9:00am", "end": "1:30pm" },
         "location": "Marine Parade",
-        "price": { "main": "SGD725", "earlyBird": false },
-        "url": "https://www.eventbrite.sg/e/principles-2-mp-apr-may-weekly-wed-430pm-630pm-no-class-on-1-may-tickets-58702263049"
-      }
-    ]
-  },
-  "Principles 3": {
-    "events": [
-      {
-        "type": "Weekend Weekly",
-        "dates": {
-          "startDate": "1553329800000",
-          "endDate": "1558780200000",
-          "startDay": "Sat",
-          "endDay": "Sat",
-          "sessionLength": "2",
-          "sessionNumOfDays": 8,
-          "day": "Weekends",
-          "full": [
-            "1553299200000",
-            "1553904000000",
-            "1555718400000",
-            "1556323200000",
-            "1556928000000",
-            "1557532800000",
-            "1558137600000",
-            "1558742400000"
-          ],
-          "skipped": ["1559606400000", "1555113600000", "1546646400000"]
-        },
-        "time": { "start": "4:30pm", "end": "6:30pm" },
-        "location": "Bukit Timah",
-        "price": { "main": "SGD880", "earlyBird": false },
-        "url": "https://www.eventbrite.sg/e/principles-3-bt-mar-may-weekly-sat-430pm-630pm-tickets-55314857227"
+        "price": { "main": 725, "earlyBird": false },
+        "url": "https://www.eventbrite.sg/e/basics-x-app-inventor-1-previously-basics-5-mp-2019-jun-coding-camp-mon-thu-9am-11am-1130am-130pm-tickets-60696849912"
       }
     ]
   }
