@@ -1,27 +1,27 @@
 {
-  "Basics X": {
-    "courseTitle": "Basics X",
-    "courseName": "BasicsX",
-    "url": "/courses/basics/basicsx",
-    "ages": { "start": 11, "end": 12 },
-    "subtitle": "App Inventor 1 - Intro to Mobile Programming",
+  "Introduction to Java": {
+    "courseTitle": "Introduction to Java",
+    "courseName": "IntroductiontoJava",
+    "url": "/courses/academics/java1",
+    "ages": { "start": 15, "end": 18 },
+    "subtitle": "Introduction to Java",
     "events": [
       {
         "type": "Holiday Camp",
         "dates": {
-          "startDate": 1560733200000,
-          "endDate": 1561008600000,
-          "startDay": "Mon",
-          "endDay": "Thu",
-          "sessionLength": "4 1/2",
+          "startDate": 1563256800000,
+          "endDate": 1563532200000,
+          "startDay": "Tue",
+          "endDay": "Fri",
+          "sessionLength": "4",
           "sessionNumOfDays": 4,
           "day": "Weekdays",
-          "full": [1560729600000, 1560816000000, 1560902400000, 1560988800000]
+          "full": [1563235200000, 1563321600000, 1563408000000, 1563494400000]
         },
-        "time": { "start": "9:00am", "end": "1:30pm" },
+        "time": { "start": "2:00pm", "end": "6:30pm" },
         "location": "Marine Parade",
-        "price": { "main": 725, "earlyBird": false },
-        "url": "https://www.eventbrite.sg/e/basics-x-app-inventor-1-previously-basics-5-mp-2019-jun-coding-camp-mon-thu-9am-11am-1130am-130pm-tickets-60696849912"
+        "price": { "main": 790, "earlyBird": false },
+        "url": "https://www.eventbrite.sg/e/introduction-to-java-mp-jul-coding-camp-tues-fri-2pm-4pm-430pm-630pm-tickets-60514986955"
       }
     ]
   }

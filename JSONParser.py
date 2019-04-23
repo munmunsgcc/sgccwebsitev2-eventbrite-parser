@@ -110,11 +110,13 @@ def getCourseTiming(localDate, strUTCDate):
 # Format in total hours and minutes are in fraction
 
 
-def getCourseSessionLength(start, end):
+def getCourseSessionLength(start, end, type):
     courseHourLength = end.hour - start.hour
     courseMinuteLength = end.minute - start.minute
 
-    if courseMinuteLength > 0:
+    if type == 'Holiday Camp' and courseHourLength >= 4:
+        return '{}'.format(4)
+    elif courseMinuteLength > 0:
         courseMinuteLength = format(Fraction(courseMinuteLength * 1/60))
         return '{} {}'.format(courseHourLength, courseMinuteLength)
     else:
@@ -129,10 +131,11 @@ def JSONParser(data, skippedDays, parsedResponses):
     fullEventDates = []
     set = rruleset()
     unixSkippedDays = []
+    nameThreeWords = "Introduction to Java Junior Python"
 
     # Set how best we should parse the name
     # Usually it's Basics 2 or Principles 2, but lately we have Junior Python 1
-    selectedArr = nameList[0:3] if nameList[0] == 'Junior' else nameList[0:2]
+    selectedArr = nameList[0:3] if nameList[0] in nameThreeWords else nameList[0:2]
 
     # Set course name and id, whatever needed to identify the course
     courseNameTitle = ' '.join(selectedArr)
@@ -220,7 +223,7 @@ def JSONParser(data, skippedDays, parsedResponses):
         "endDate": courseEndTiming['date'],
         "startDay": courseStartTiming['day'],
         "endDay": courseEndTiming['day'],
-        "sessionLength": getCourseSessionLength(courseStart, courseEnd),
+        "sessionLength": getCourseSessionLength(courseStart, courseEnd, courseType),
         "sessionNumOfDays": len(fullEventDates),
         "day": "Weekends" if courseStartTiming['day'] in ["Sat", "Sun"] else "Weekdays",
         "full": fullEventDates,

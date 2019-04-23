@@ -12,13 +12,23 @@ info = {
     },
     "basics3": {
         "subtitle": "Starting with Scratch",
-        "url": "/courses/basics/basics1",
+        "url": "/courses/basics/basics3",
         "ages": [9, 10],
         "recommenderOnly": True,
     },
+    "basics4a": {
+        "subtitle": "Building with Scratch",
+        "url": "/courses/basics/basics4",
+        "ages": [9, 10]
+    },
+    "basics4b": {
+        "subtitle": "Building with Scratch",
+        "url": "/courses/basics/basics4",
+        "ages": [9, 10]
+    },
     "basics4": {
         "subtitle": "Building with Scratch",
-        "url": "/courses/basics/basics2",
+        "url": "/courses/basics/basics4",
         "ages": [9, 10]
     },
     "basicsx": {
@@ -91,6 +101,11 @@ info = {
         },
         "url": "/courses/principles/principlesx",
         "ages": [13, 19]
+    },
+    "introductiontojava": {
+        "subtitle": "Introduction to Java",
+        "url": "/courses/academics/java1",
+        "ages": [15, 18]
     }
 }
 prices = {
@@ -178,6 +193,10 @@ prices = {
     "principlesX": {
         "camp": 880,
         "weekly": 880
+    },
+    "introductiontojava": {
+        "camp": 790,
+        "weekly": 790
     },
     "java1": {
         "camp": 790,
