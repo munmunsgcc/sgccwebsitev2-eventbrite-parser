@@ -68,9 +68,9 @@ def getCourseType(nameList, date):
     if 'Holiday' in nameList or 'Camp' in nameList:
         courseType = 'Holiday Camp'
     elif 'Weekly' in nameList and (intToDay(date.weekday()) == 'Sat' or intToDay(date.weekday()) == 'Sun'):
-        courseType = 'Weekend Weekly'
+        courseType = 'Weekly Classes'
     else:
-        courseType = 'Weekday Weekly'
+        courseType = 'Weekly Classes'
 
     return courseType
 

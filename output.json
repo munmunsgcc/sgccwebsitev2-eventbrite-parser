@@ -7,21 +7,30 @@
     "subtitle": "Programming with Functions in Python",
     "events": [
       {
-        "type": "Holiday Camp",
+        "type": "Weekend Classes",
         "dates": {
-          "startDate": 1560146400000,
-          "endDate": 1560421800000,
-          "startDay": "Mon",
-          "endDay": "Thu",
-          "sessionLength": "4",
-          "sessionNumOfDays": 4,
-          "day": "Weekdays",
-          "full": [1560124800000, 1560211200000, 1560297600000, 1560384000000]
+          "startDate": 1558834200000,
+          "endDate": 1563075000000,
+          "startDay": "Sun",
+          "endDay": "Sun",
+          "sessionLength": "2",
+          "sessionNumOfDays": 8,
+          "day": "Weekends",
+          "full": [
+            1558828800000,
+            1559433600000,
+            1560038400000,
+            1560643200000,
+            1561248000000,
+            1561852800000,
+            1562457600000,
+            1563062400000
+          ]
         },
-        "time": { "start": "2:00pm", "end": "6:30pm" },
+        "time": { "start": "9:30am", "end": "11:30am" },
         "location": "Marine Parade",
         "price": { "main": 775, "earlyBird": false },
-        "url": "https://www.eventbrite.sg/e/principles-2-mp-jun-camp-10-jun-13-jun-2pm-4pm-430pm-630pm-tickets-60449184137"
+        "url": "https://www.eventbrite.sg/e/principles-2-mp-may-jul-weekly-sun-930am-1130am-tickets-61021089722"
       }
     ]
   }

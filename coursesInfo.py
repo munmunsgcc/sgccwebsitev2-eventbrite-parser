@@ -99,12 +99,12 @@ info = {
         "ages": [13, 19]
     },
     "java1": {
-        "subtitle": "Introduction to Java",
+        "subtitle": "Fundamentals in Java",
         "url": "/courses/academics/java1",
         "ages": [15, 19]
     },
     "introductiontojava": {
-        "subtitle": "Introduction to Java",
+        "subtitle": "Fundamentals in Java",
         "url": "/courses/academics/java1",
         "ages": [15, 19]
     }
