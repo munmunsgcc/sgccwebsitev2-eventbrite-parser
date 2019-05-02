@@ -1,3 +1,10 @@
+standardCourses = ["Basics 1", "Basics 2", "Basics 3", "Basics 4", "Basics 4A",
+                   "Basics 4B", "Basics 5", "Basics 5A", "Basics 5B", "Basics 6",
+                   "Principles 1", "Principles 2", "Principles 3", "Principles 3B", "Principles 3A", "Principles 4",
+                   "Principles 5", "Principles 6", "Principles X",
+                   "Introduction to Java", "Java 1", "Java 2", "Junior Python 1", "Junior Python 2",
+                   "Junior Python 3", "Junior Python 4"]
+
 info = {
     "basics1": {
         "subtitle": "Fun with Dash & Scratch",
@@ -67,6 +74,11 @@ info = {
     "principles2": {
         "subtitle": "Programming with Functions in Python",
         "url": "/courses/principles/principles2",
+        "ages": [13, 19]
+    },
+    "principles3b": {
+        "subtitle": "Data Structures in Python",
+        "url": "/courses/principles/principles3",
         "ages": [13, 19]
     },
     "principles3": {
@@ -166,6 +178,10 @@ prices = {
     "principles2": {
         "camp": 775,
         "weekly": 775
+    },
+    "principles3b": {
+        "camp": 440,
+        "weekly": 440
     },
     "principles3": {
         "camp": 880,

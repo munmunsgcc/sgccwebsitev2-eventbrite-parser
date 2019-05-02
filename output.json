@@ -1,4 +1,272 @@
 {
+  "Basics 1": {
+    "courseTitle": "Basics 1",
+    "courseName": "Basics1",
+    "url": "/courses/basics/basics1",
+    "ages": { "start": 7, "end": 8 },
+    "subtitle": "Fun with Dash & Scratch",
+    "events": [
+      {
+        "type": "Holiday Camp",
+        "dates": {
+          "startDate": 1560137400000,
+          "endDate": 1560490200000,
+          "startDay": "Mon",
+          "endDay": "Fri",
+          "sessionLength": "2",
+          "sessionNumOfDays": 5,
+          "day": "Weekdays",
+          "full": [
+            1560124800000,
+            1560211200000,
+            1560297600000,
+            1560384000000,
+            1560470400000
+          ]
+        },
+        "time": { "start": "11:30am", "end": "1:30pm" },
+        "location": "Bukit Timah",
+        "price": { "main": 395, "earlyBird": true },
+        "url": "https://www.eventbrite.sg/e/basics-1-previously-fundamentals-1-bt-jun-camp-mon-fri-1130am-130pm-tickets-61214407942"
+      }
+    ]
+  },
+  "Basics 3": {
+    "courseTitle": "Basics 3",
+    "courseName": "Basics3",
+    "url": "/courses/basics/basics3",
+    "ages": { "start": 9, "end": 10 },
+    "subtitle": "Starting with Scratch",
+    "events": [
+      {
+        "type": "Holiday Camp",
+        "dates": {
+          "startDate": 1560137400000,
+          "endDate": 1560490200000,
+          "startDay": "Mon",
+          "endDay": "Fri",
+          "sessionLength": "2",
+          "sessionNumOfDays": 5,
+          "day": "Weekdays",
+          "full": [
+            1560124800000,
+            1560211200000,
+            1560297600000,
+            1560384000000,
+            1560470400000
+          ]
+        },
+        "time": { "start": "11:30am", "end": "1:30pm" },
+        "location": "Bukit Timah",
+        "price": { "main": 455, "earlyBird": false },
+        "url": "https://www.eventbrite.sg/e/basics-3-previously-basics-1-bt-jun-camp-mon-fri-1130am-130pm-tickets-61215219369"
+      },
+      {
+        "type": "Holiday Camp",
+        "dates": {
+          "startDate": 1560760200000,
+          "endDate": 1561113000000,
+          "startDay": "Mon",
+          "endDay": "Fri",
+          "sessionLength": "2",
+          "sessionNumOfDays": 5,
+          "day": "Weekdays",
+          "full": [
+            1560729600000,
+            1560816000000,
+            1560902400000,
+            1560988800000,
+            1561075200000
+          ]
+        },
+        "time": { "start": "4:30pm", "end": "6:30pm" },
+        "location": "Marine Parade",
+        "price": { "main": 455, "earlyBird": false },
+        "url": "https://www.eventbrite.sg/e/basics-3-previously-basics-1-mp-jun-camp-mon-fri-430pm-630pm-tickets-61216789064"
+      }
+    ]
+  },
+  "Principles 1": {
+    "courseTitle": "Principles 1",
+    "courseName": "Principles1",
+    "url": "/courses/principles/principles1",
+    "ages": { "start": 13, "end": 19 },
+    "subtitle": "Python Fundamentals",
+    "events": [
+      {
+        "type": "Holiday Camp",
+        "dates": {
+          "startDate": 1560155400000,
+          "endDate": 1560508200000,
+          "startDay": "Mon",
+          "endDay": "Fri",
+          "sessionLength": "2",
+          "sessionNumOfDays": 5,
+          "day": "Weekdays",
+          "full": [
+            1560124800000,
+            1560211200000,
+            1560297600000,
+            1560384000000,
+            1560470400000
+          ]
+        },
+        "time": { "start": "4:30pm", "end": "6:30pm" },
+        "location": "Marine Parade",
+        "price": { "main": 485, "earlyBird": true },
+        "url": "https://www.eventbrite.sg/e/principles-1-mp-jun-coding-camp-mon-fri-430pm-630pm-tickets-61215826184"
+      },
+      {
+        "type": "Holiday Camp",
+        "dates": {
+          "startDate": 1560760200000,
+          "endDate": 1561113000000,
+          "startDay": "Mon",
+          "endDay": "Fri",
+          "sessionLength": "2",
+          "sessionNumOfDays": 5,
+          "day": "Weekdays",
+          "full": [
+            1560729600000,
+            1560816000000,
+            1560902400000,
+            1560988800000,
+            1561075200000
+          ]
+        },
+        "time": { "start": "4:30pm", "end": "6:30pm" },
+        "location": "Marine Parade",
+        "price": { "main": 485, "earlyBird": true },
+        "url": "https://www.eventbrite.sg/e/principles-1-mp-jun-coding-camp-mon-fri-430pm-630pm-tickets-61216272519"
+      },
+      {
+        "type": "Holiday Camp",
+        "dates": {
+          "startDate": 1561365000000,
+          "endDate": 1561717800000,
+          "startDay": "Mon",
+          "endDay": "Fri",
+          "sessionLength": "2",
+          "sessionNumOfDays": 5,
+          "day": "Weekdays",
+          "full": [
+            1561334400000,
+            1561420800000,
+            1561507200000,
+            1561593600000,
+            1561680000000
+          ]
+        },
+        "time": { "start": "4:30pm", "end": "6:30pm" },
+        "location": "Bukit Timah",
+        "price": { "main": 485, "earlyBird": true },
+        "url": "https://www.eventbrite.sg/e/principles-1-bt-jun-coding-camp-mon-fri-430pm-630pm-tickets-61216737911"
+      },
+      {
+        "type": "Holiday Camp",
+        "dates": {
+          "startDate": 1561365000000,
+          "endDate": 1561717800000,
+          "startDay": "Mon",
+          "endDay": "Fri",
+          "sessionLength": "2",
+          "sessionNumOfDays": 5,
+          "day": "Weekdays",
+          "full": [
+            1561334400000,
+            1561420800000,
+            1561507200000,
+            1561593600000,
+            1561680000000
+          ]
+        },
+        "time": { "start": "4:30pm", "end": "6:30pm" },
+        "location": "Marine Parade",
+        "price": { "main": 485, "earlyBird": true },
+        "url": "https://www.eventbrite.sg/e/principles-1-mp-jun-coding-camp-mon-fri-430pm-630pm-tickets-61216467101"
+      }
+    ]
+  },
+  "Junior Python 1": {
+    "courseTitle": "Junior Python 1",
+    "courseName": "JuniorPython1",
+    "url": "/courses/basics/jrpython1",
+    "ages": { "start": 11, "end": 12 },
+    "subtitle": "Intro to Python",
+    "events": [
+      {
+        "type": "Holiday Camp",
+        "dates": {
+          "startDate": 1560751200000,
+          "endDate": 1561026600000,
+          "startDay": "Mon",
+          "endDay": "Thu",
+          "sessionLength": "4",
+          "sessionNumOfDays": 4,
+          "day": "Weekdays",
+          "full": [1560729600000, 1560816000000, 1560902400000, 1560988800000]
+        },
+        "time": { "start": "2:00pm", "end": "6:30pm" },
+        "location": "Marine Parade",
+        "price": { "main": 775, "earlyBird": false },
+        "url": "https://www.eventbrite.sg/e/junior-python-1-mp-jun-camp-mon-fri-2pm-4pm-430pm-630pm-tickets-61216150153"
+      }
+    ]
+  },
+  "Basics X": {
+    "courseTitle": "Basics X",
+    "courseName": "BasicsX",
+    "url": "/courses/basics/basicsx",
+    "ages": { "start": 11, "end": 12 },
+    "events": [
+      {
+        "type": "Holiday Camp",
+        "dates": {
+          "startDate": 1560751200000,
+          "endDate": 1561104000000,
+          "startDay": "Mon",
+          "endDay": "Fri",
+          "sessionLength": "2",
+          "sessionNumOfDays": 5,
+          "day": "Weekdays",
+          "full": [
+            1560729600000,
+            1560816000000,
+            1560902400000,
+            1560988800000,
+            1561075200000
+          ]
+        },
+        "time": { "start": "2:00pm", "end": "4:00pm" },
+        "location": "Marine Parade",
+        "price": { "main": 725, "earlyBird": false },
+        "url": "https://www.eventbrite.sg/e/basics-x-microbit-1-previously-basics-3-mp-2019-jun-coding-camp-mon-fri-200pm-400pm-tickets-61217912424"
+      },
+      {
+        "type": "Holiday Camp",
+        "dates": {
+          "startDate": 1561365000000,
+          "endDate": 1561717800000,
+          "startDay": "Mon",
+          "endDay": "Fri",
+          "sessionLength": "2",
+          "sessionNumOfDays": 5,
+          "day": "Weekdays",
+          "full": [
+            1561334400000,
+            1561420800000,
+            1561507200000,
+            1561593600000,
+            1561680000000
+          ]
+        },
+        "time": { "start": "4:30pm", "end": "6:30pm" },
+        "location": "Bukit Timah",
+        "price": { "main": 725, "earlyBird": false },
+        "url": "https://www.eventbrite.sg/e/basics-x-microbit-1-previously-basics-3-bt-2019-jun-coding-camp-mon-fri-430pm-630pm-tickets-61217143123"
+      }
+    ]
+  },
   "Principles 2": {
     "courseTitle": "Principles 2",
     "courseName": "Principles2",
@@ -7,30 +275,27 @@
     "subtitle": "Programming with Functions in Python",
     "events": [
       {
-        "type": "Weekend Classes",
+        "type": "Holiday Camp",
         "dates": {
-          "startDate": 1558834200000,
-          "endDate": 1563075000000,
-          "startDay": "Sun",
-          "endDay": "Sun",
-          "sessionLength": "2",
-          "sessionNumOfDays": 8,
-          "day": "Weekends",
+          "startDate": 1561341600000,
+          "endDate": 1561698000000,
+          "startDay": "Mon",
+          "endDay": "Fri",
+          "sessionLength": "3",
+          "sessionNumOfDays": 5,
+          "day": "Weekdays",
           "full": [
-            1558828800000,
-            1559433600000,
-            1560038400000,
-            1560643200000,
-            1561248000000,
-            1561852800000,
-            1562457600000,
-            1563062400000
+            1561334400000,
+            1561420800000,
+            1561507200000,
+            1561593600000,
+            1561680000000
           ]
         },
-        "time": { "start": "9:30am", "end": "11:30am" },
-        "location": "Marine Parade",
+        "time": { "start": "10:00am", "end": "1:00pm" },
+        "location": "Bukit Timah",
         "price": { "main": 775, "earlyBird": false },
-        "url": "https://www.eventbrite.sg/e/principles-2-mp-may-jul-weekly-sun-930am-1130am-tickets-61021089722"
+        "url": "https://www.eventbrite.sg/e/principles-2-bt-jun-camp-24-28-jun-10am-1pm-tickets-61217095982"
       }
     ]
   }

@@ -3,7 +3,7 @@ import sys
 import json
 import urllib.request
 from datetime import *
-from JSONParser import JSONParser
+from parser import chooseParser
 
 # Open and read the input.txt for list of links
 links = open('input.txt', 'r').readlines()
@@ -39,7 +39,7 @@ for eventId in eventIds:
 # parse the responses one by one, while passing in the parsedResponses object
 # again and again
 for eventBriteResponse in eventBriteResponses:
-    parsedResponses = JSONParser(
+    parsedResponses = chooseParser(
         eventBriteResponse, skippedDays, parsedResponses)
 
 # We have now completely parsed the returned Eventbrite responses.
