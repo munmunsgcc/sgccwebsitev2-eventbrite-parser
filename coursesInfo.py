@@ -1,4 +1,4 @@
-standardCourses = ["Basics 1", "Basics 2", "Basics 3", "Basics 4", "Basics 4A",
+standardCourses = ["Basics 1", "Basics 2", "Basics 2A", "Basics 2B", "Basics 3", "Basics 4", "Basics 4A",
                    "Basics 4B", "Basics 5", "Basics 5A", "Basics 5B", "Basics 6",
                    "Principles 1", "Principles 2", "Principles 3", "Principles 3B", "Principles 3A", "Principles 4",
                    "Principles 5", "Principles 6", "Principles X",
@@ -12,6 +12,11 @@ info = {
         "ages": [7, 8]
     },
     "basics2": {
+        "subtitle": "Explorations with Dash & Scratch",
+        "url": "/courses/basics/basics2",
+        "ages": [7, 8]
+    },
+    "basics2a": {
         "subtitle": "Explorations with Dash & Scratch",
         "url": "/courses/basics/basics2",
         "ages": [7, 8]
@@ -147,8 +152,9 @@ prices = {
         "weekly": 625
     },
     "basics3": {
-        "camp": 455,
-        "weekly": 455
+        "camp": 395,
+        "weekly": 395,
+        "earlyBird": {"camp": True, "weekly": True},
     },
     "basics4a": {
         "camp": 625,
