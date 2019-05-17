@@ -1,7 +1,7 @@
 standardCourses = ["Basics 1", "Basics 2", "Basics 2A", "Basics 2B", "Basics 3", "Basics 4", "Basics 4A",
                    "Basics 4B", "Basics 5", "Basics 5A", "Basics 5B", "Basics 6",
                    "Principles 1", "Principles 2", "Principles 3", "Principles 3B", "Principles 3A", "Principles 4",
-                   "Principles 5", "Principles 6", "Principles X",
+                   "Principles 5", "Principles 6",
                    "Introduction to Java", "Java 1", "Java 2", "Junior Python 1", "Junior Python 2",
                    "Junior Python 3", "Junior Python 4"]
 
@@ -227,7 +227,8 @@ prices = {
     },
     "juniorpython1": {
         "camp": 775,
-        "weekly": 775
+        "weekly": 775,
+        "earlyBird": {"camp": True, "weekly": True},
     },
     "academics1": {"camp": True}
 }
