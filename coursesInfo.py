@@ -230,5 +230,20 @@ prices = {
         "weekly": 775,
         "earlyBird": {"camp": True, "weekly": True},
     },
+    "juniorpython2": {
+        "camp": 775,
+        "weekly": 775,
+        "earlyBird": {"camp": True, "weekly": True},
+    },
+    "juniorpython3": {
+        "camp": 775,
+        "weekly": 775,
+        "earlyBird": {"camp": True, "weekly": True},
+    },
+    "juniorpython4": {
+        "camp": 775,
+        "weekly": 775,
+        "earlyBird": {"camp": True, "weekly": True},
+    },
     "academics1": {"camp": True}
 }
