@@ -218,12 +218,14 @@ prices = {
         "weekly": 880
     },
     "introductiontojava": {
-        "camp": 790,
-        "weekly": 790
+        "camp": 825,
+        "weekly": 825,
+        "earlyBird": {"camp": True, "weekly": True},
     },
     "java1": {
-        "camp": 790,
-        "weekly": 790
+        "camp": 825,
+        "weekly": 825,
+        "earlyBird": {"camp": True, "weekly": True},
     },
     "juniorpython1": {
         "camp": 775,
