@@ -86,6 +86,16 @@ info = {
         "url": "/courses/principles/principles3/",
         "ages": [13, 19]
     },
+    "principles+ 1": {
+        "subtitle": "Python Intensive",
+        "url": "/courses/principles/principlesplus1/",
+        "ages": [16, 19]
+    },
+    "principles+ 2": {
+        "subtitle": "Foundations in Data Science",
+        "url": "/courses/principles/principlesplus2/",
+        "ages": [16, 19]
+    },
     "principles3": {
         "subtitle": "Data Structures in Python",
         "url": "/courses/principles/principles3/",
@@ -217,6 +227,14 @@ prices = {
         "camp": 880,
         "weekly": 880
     },
+    "principles+ 1": {
+        "camp": 880,
+        "weekly": 880
+    },
+    "principles+ 2": {
+        "camp": 880,
+        "weekly": 880
+    },
     "introductiontojava": {
         "camp": 825,
         "weekly": 825,
@@ -226,6 +244,10 @@ prices = {
         "camp": 825,
         "weekly": 825,
         "earlyBird": {"camp": True, "weekly": True},
+    },
+    "java2": {
+        "camp": 825,
+        "weekly": 825
     },
     "juniorpython1": {
         "camp": 775,
