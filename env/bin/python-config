@@ -1,4 +1,4 @@
-#!/Users/munmun/code/sgccwebsitev2-eventbrite-parser/venv/bin/python
+#!/Users/d4rkness/code/sgccwebsitev2-eventbrite-parser/env/bin/python
 
 import sys
 import getopt

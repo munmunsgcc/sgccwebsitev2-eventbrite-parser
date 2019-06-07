@@ -40,7 +40,7 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
-VIRTUAL_ENV="/Users/munmun/code/sgccwebsitev2-eventbrite-parser/venv"
+VIRTUAL_ENV="/Users/d4rkness/code/sgccwebsitev2-eventbrite-parser/env"
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"

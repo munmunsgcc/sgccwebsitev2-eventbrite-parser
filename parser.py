@@ -183,7 +183,7 @@ def standardJSONParser(data, skippedDays, parsedResponses):
     # We have the dates already, so we just need to convert them to Unix milliseconds
     for day in skippedDays:
         set.exdate(parse(day, dayfirst=True))
-        unixSkippedDays.append(convertDateToUnixMS(parse(day)))
+        unixSkippedDays.append(convertDateToUnixMS(parse(day, dayfirst=True)))
 
     for date in list(set):
         fullEventDates.append(convertDateToUnixMS(date))
@@ -293,7 +293,7 @@ def customJSONParser(data, skippedDays, parsedResponses):
     # We have the dates already, so we just need to convert them to Unix milliseconds
     for day in skippedDays:
         set.exdate(parse(day, dayfirst=True))
-        unixSkippedDays.append(convertDateToUnixMS(parse(day)))
+        unixSkippedDays.append(convertDateToUnixMS(parse(day, dayfirst=True)))
 
     for date in list(set):
         fullEventDates.append(convertDateToUnixMS(date))
