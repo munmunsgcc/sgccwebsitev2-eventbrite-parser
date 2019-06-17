@@ -21,6 +21,11 @@ info = {
         "url": "/courses/basics/basics2/",
         "ages": [7, 8]
     },
+    "basics2b": {
+        "subtitle": "Explorations with Dash & Scratch",
+        "url": "/courses/basics/basics2/",
+        "ages": [7, 8]
+    },
     "basics3": {
         "subtitle": "Starting with Scratch",
         "url": "/courses/basics/basics3/",
@@ -161,6 +166,10 @@ prices = {
         "camp": 625,
         "weekly": 625
     },
+    "basics2b": {
+        "camp": 625,
+        "weekly": 625
+    },
     "basics3": {
         "camp": 395,
         "weekly": 395,
@@ -180,7 +189,7 @@ prices = {
     },
     "basicsx": {
         "camp": 625,
-        "weekly": 625
+        "weekly": 25
     },
     "basics5": {
         "camp": 725,
