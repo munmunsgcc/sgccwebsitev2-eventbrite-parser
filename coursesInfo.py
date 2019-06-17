@@ -170,13 +170,17 @@ prices = {
         "camp": 625,
         "weekly": 625
     },
+    "basics4b": {
+        "camp": 625,
+        "weekly": 625
+    },
     "basics4": {
         "camp": 725,
         "weekly": 725
     },
     "basicsx": {
-        "camp": 725,
-        "weekly": 725
+        "camp": 625,
+        "weekly": 625
     },
     "basics5": {
         "camp": 725,
@@ -257,7 +261,6 @@ prices = {
     "juniorpython2": {
         "camp": 775,
         "weekly": 775,
-        "earlyBird": {"camp": True, "weekly": True},
     },
     "juniorpython3": {
         "camp": 775,
