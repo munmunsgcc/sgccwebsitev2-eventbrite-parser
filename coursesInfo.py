@@ -56,6 +56,11 @@ info = {
         "url": "/courses/basics/basicsx/",
         "ages": [11, 12]
     },
+    "juniorpython": {
+        "subtitle": "Intro to Python",
+        "url": "/courses/basics/jrpython1/",
+        "ages": [11, 12]
+    },
     "juniorpython1": {
         "subtitle": "Intro to Python",
         "url": "/courses/basics/jrpython1/",
@@ -133,7 +138,12 @@ info = {
     "java1": {
         "subtitle": "Fundamentals in Java",
         "url": "/courses/academics/java1/",
-        "ages": [15, 19]
+        "ages": [16, 18]
+    },
+    "java2": {
+        "subtitle": "Java Methods & Arrays",
+        "url": "/courses/academics/java2/",
+        "ages": [16, 18]
     },
     "introductiontojava": {
         "subtitle": "Fundamentals in Java",
@@ -280,6 +290,10 @@ prices = {
         "camp": 775,
         "weekly": 775,
         "earlyBird": {"camp": True, "weekly": True},
+    },
+    "juniorpython": {
+        "camp": 775,
+        "weekly": 775,
     },
     "academics1": {"camp": True}
 }

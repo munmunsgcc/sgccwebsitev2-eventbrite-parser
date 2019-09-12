@@ -65,12 +65,12 @@ def intToMonth(number):
 def getCourseType(nameList, date):
     courseType = ''
 
-    if 'Holiday' in nameList or 'Camp' in nameList:
-        courseType = 'Holiday Camp'
-    elif 'Weekly' in nameList and (intToDay(date.weekday()) == 'Sat' or intToDay(date.weekday()) == 'Sun'):
-        courseType = 'Weekend Weekly'
-    else:
-        courseType = 'Weekday Weekly'
+    for word in nameList:
+        if courseType == '' and word.find('Holiday') > -1 or word.find('holiday') > -1 or word.find('Camp') - 1 or word.find('camp') > -1:
+            courseType = 'Holiday Camp'
+
+    if courseType == '':
+        courseType = 'Weekly Weekly'
 
     return courseType
 
@@ -131,7 +131,7 @@ def standardJSONParser(data, skippedDays, parsedResponses):
     fullEventDates = []
     set = rruleset()
     unixSkippedDays = []
-    nameThreeWords = "Introduction to Java Junior Python"
+    nameThreeWords = "Introduction to Junior Python"
 
     # Set how best we should parse the name
     # Usually it's Basics 2 or Principles 2, but lately we have Junior Python 1
