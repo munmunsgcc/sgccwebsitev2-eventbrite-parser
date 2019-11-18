@@ -72,7 +72,7 @@ info = {
         "ages": [11, 12]
     },
     "juniorpython3": {
-        "subtitle": "More functions in Python",
+        "subtitle": "Data Structures",
         "url": "/courses/basics/jrpython3/",
         "ages": [11, 12]
     },
