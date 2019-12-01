@@ -68,9 +68,11 @@ def getCourseType(nameList, date):
     for word in nameList:
         if courseType == '' and word.find('Holiday') > -1 or word.find('holiday') > -1 or word.find('Camp') > - 1 or word.find('camp') > -1:
             courseType = 'Holiday Camp'
+        if word.find('Sat') > -1 or word.find('Sun') > -1 or word.find('sat') > -1 or word.find('sun') > -1:
+            courseType = 'Weekend Weekly'
 
     if courseType == '':
-        courseType = 'Weekly Weekly'
+        courseType = 'Weekday Weekly'
 
     return courseType
 

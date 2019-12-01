@@ -152,8 +152,8 @@ info = {
     }
 }
 prices = {
-    "weekdayDiscount": 50,
     "earlyBirdDiscount": 25,
+    "weekdayDiscount": 50,
     "fundamentals1": {
         "camp": 395,
         "weekly": 395,
