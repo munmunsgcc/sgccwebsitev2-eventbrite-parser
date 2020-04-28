@@ -1,9 +1,9 @@
-
 import sys
 import json
 import urllib.request
 from datetime import *
 from parser import chooseParser
+
 
 # Open and read the input.txt for list of links
 links = open('input.txt', 'r').readlines()

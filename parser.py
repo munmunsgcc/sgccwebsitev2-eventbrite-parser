@@ -3,6 +3,7 @@ from dateutil.rrule import *
 from datetime import *
 from fractions import Fraction
 import coursesInfo
+import os
 
 # Converts date to unix milliseconds
 
@@ -142,17 +143,11 @@ def standardJSONParser(data, skippedDays, parsedResponses):
     # Set course name and id, whatever needed to identify the course
     courseNameTitle = ' '.join(selectedArr)
     courseNameId = ''.join(selectedArr).lower()
-    courseNameStick = ''.join(selectedArr)
-    info = coursesInfo.info[courseNameId]
 
     # Set other course info, such as the url to buy ticket, the location
-    # or the course age
-    courseNavigate = info["url"]
     courseLocation = 'Marine Parade' if ('@MP' in nameList) else 'Bukit Timah'
     courseId = data['id']
     courseURL = data['url']
-    courseAges = {"start": info["ages"]
-                  [0], "end": info["ages"][1]}
 
     # Set course start timing
     courseStart = parse(data['start']['local'])
@@ -193,26 +188,10 @@ def standardJSONParser(data, skippedDays, parsedResponses):
     # Set recommenderOnly, and other info such as subtitles, names, etc.
     # This is for overall course info.
     if courseNameTitle not in parsedResponses:
-        parsedResponses[courseNameTitle] = {
-            "courseTitle": courseNameTitle,
-            "courseName": courseNameStick,
-            "url": courseNavigate,
-            "ages": courseAges,
-        }
-
-        # Add subtitles if available
-        if "subtitle" in info:
-            parsedResponses[courseNameTitle]["subtitle"] = info["subtitle"]
-
-        # Certain courses have multiple subtitles, so we need to change subtitles based
-        # on full course name
-        if "subs" in info:
-            for key, value in info["subs"].items():
-                if key in data["name"]["text"]:
-                    parsedResponses[courseNameTitle]["subtitle"] = value
-
         # Add events array
-        parsedResponses[courseNameTitle]["events"] = []
+        parsedResponses[courseNameTitle] = {
+            "events": []
+        }
 
     # Add the dates for the event
     # This is for the course's 1 event. Events are stored in an array.
@@ -259,11 +238,9 @@ def customJSONParser(data, skippedDays, parsedResponses):
     courseNameTitle = data['name']['text']
 
     # Set other course info
-    courseNavigate = ""
     courseLocation = 'Marine Parade' if '@MP' in nameList else 'Bukit Timah'
     courseId = data['id']
     courseURL = data['url']
-    courseAges = {"start": "", "end": ""}
 
     # Set course start timing
     courseStart = parse(data['start']['local'])
@@ -279,7 +256,7 @@ def customJSONParser(data, skippedDays, parsedResponses):
 
     # Is the course a Holiday Camp or a Weekendly Weekly?
     courseType = getCourseType(nameList, courseStart)
-    coursePrice = {"main": "", "earlyBird": ""}
+    coursePrice = {"main": "", "earlyBird": False}
 
     # Get total days and dates of the course length
     # For holiday camps, it is done daily, else it is on every week
@@ -303,11 +280,6 @@ def customJSONParser(data, skippedDays, parsedResponses):
     # This is for overall course info.
     if courseNameTitle not in parsedResponses:
         parsedResponses[courseNameTitle] = {
-            "courseTitle": courseNameTitle,
-            "courseName": courseNameTitle,
-            "url": courseNavigate,
-            "ages": courseAges,
-            "subtitle": "",
             "events": []
         }
 
