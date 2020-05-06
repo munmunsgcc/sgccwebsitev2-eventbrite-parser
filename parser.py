@@ -146,6 +146,13 @@ def standardJSONParser(data, skippedDays, parsedResponses):
 
     # Set other course info, such as the url to buy ticket, the location
     courseLocation = 'Marine Parade' if ('@MP' in nameList) else 'Bukit Timah'
+    if 'ONLINE:' in nameList:
+        courseLocation = 'Not applicable'
+    elif '@MP' in nameList:
+        courseLocation = 'Marine Parade'
+    else:
+        courseLocation = 'Bukit Timah'
+
     courseId = data['id']
     courseURL = data['url']
 
