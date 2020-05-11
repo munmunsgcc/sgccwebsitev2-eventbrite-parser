@@ -80,14 +80,17 @@ def getCourseType(nameList, date):
 # Based on course type, return the correct course prices
 
 
-def getCoursePrices(courseNameId, courseType, prices=coursesInfo.prices):
+def getCoursePrices(courseNameId, courseType, courseLocation, prices=coursesInfo.prices):
     price = ''
     courseNamePrice = prices[courseNameId]
     earlyBirdDiscount = prices['earlyBirdDiscount']
     weekdayDiscount = prices['weekdayDiscount']
     earlyBird = False
 
-    if courseType == 'Weekend Weekly':
+    if courseLocation == 'Not applicable':
+        price = 0
+        earlyBird = False
+    elif courseType == 'Weekend Weekly':
         price = courseNamePrice['weekly']
         earlyBird = courseNamePrice['earlyBird']['weekly'] if 'earlyBird' in courseNamePrice and 'weekly' in courseNamePrice['earlyBird'] else False
     elif courseType == 'Weekday Weekly':
@@ -146,7 +149,7 @@ def standardJSONParser(data, skippedDays, parsedResponses):
 
     # Set other course info, such as the url to buy ticket, the location
     courseLocation = 'Marine Parade' if ('@MP' in nameList) else 'Bukit Timah'
-    if 'ONLINE:' in nameList:
+    if 'ONLINE:' in nameList or 'ONLINE' in nameList or 'online' in nameList:
         courseLocation = 'Not applicable'
     elif '@MP' in nameList:
         courseLocation = 'Marine Parade'
@@ -171,7 +174,7 @@ def standardJSONParser(data, skippedDays, parsedResponses):
     # Is the course a Holiday Camp or a Weekendly Weekly?
     # Also sets the course pricing
     courseType = getCourseType(nameList, courseStart)
-    coursePrice = getCoursePrices(courseNameId, courseType)
+    coursePrice = getCoursePrices(courseNameId, courseType, courseLocation)
 
     # Get total days and dates of the course length
     # For holiday camps, it is done daily, else it is on every week
