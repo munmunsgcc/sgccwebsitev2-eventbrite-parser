@@ -145,7 +145,7 @@ def standardJSONParser(data, skippedDays, parsedResponses):
 
     # Set course name and id, whatever needed to identify the course
     courseNameTitle = ' '.join(selectedArr)
-    courseNameId = ''.join(selectedArr).lower()
+    courseNameId = (''.join(selectedArr).lower()).replace(':', '')
 
     # Set other course info, such as the url to buy ticket, the location
     courseLocation = 'Marine Parade' if ('@MP' in nameList) else 'Bukit Timah'
