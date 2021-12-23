@@ -100,7 +100,7 @@ def getCoursePrices(courseNameId, courseType, courseLocation, prices=coursesInfo
         price = courseNamePrice['camp']
         earlyBird = courseNamePrice['earlyBird']['camp'] if 'earlyBird' in courseNamePrice and 'camp' in courseNamePrice['earlyBird'] else False
 
-    return {'main': price, 'earlyBird': earlyBird}
+    return {'main': price, 'preGST': "", 'earlyBird': earlyBird}
 
 # Get course's time, date and day of the week
 
@@ -266,7 +266,7 @@ def customJSONParser(data, skippedDays, parsedResponses):
 
     # Is the course a Holiday Camp or a Weekendly Weekly?
     courseType = getCourseType(nameList, courseStart)
-    coursePrice = {"main": "", "earlyBird": False}
+    coursePrice = {"main": "", "preGST": "", "earlyBird": False}
 
     # Get total days and dates of the course length
     # For holiday camps, it is done daily, else it is on every week
